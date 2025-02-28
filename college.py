@@ -56,8 +56,7 @@ if closest_answer:
         st.session_state.messages.append({"role": "assistant", "content": closest_answer})
         with st.chat_message("assistant"):
             st.markdown(closest_answer)
-    else:
-  
+else:
         try:
             response = model.generate_content(prompt)
             st.session_state.messages.append({"role": "assistant", "content": response.text})
@@ -65,7 +64,7 @@ if closest_answer:
                 st.markdown(response.text)
         except Exception as e:
             st.error(f"Sorry, I couldn't generate a response. Error: {e}")
-
+    
 
 
 
